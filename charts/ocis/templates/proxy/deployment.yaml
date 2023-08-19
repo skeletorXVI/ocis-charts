@@ -72,6 +72,12 @@ spec:
 
             - name: PROXY_OIDC_SKIP_CLIENT_ID_CHECK
               value: "true"
+            
+            {{- if .Values.features.externalUserManagement.oidc.autoProvisionAccounts }}
+            - name: PROXY_AUTOPROVISION_ACCOUNTS
+              value: "true"
+            {{- end }}
+
             {{- end }}
 
             - name: PROXY_TLS
